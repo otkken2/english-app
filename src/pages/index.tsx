@@ -26,7 +26,7 @@ const Home = () => {
   </div>
   )
   return (
-    <div className='flex flex-col items-center md:max-w-[640px] max-w-screen w-full p-10 gap-10'>
+    <div className='flex flex-col items-center md:max-w-[640px] max-w-screen w-full p-4 sm:p-10 gap-10'>
       <h1 className='text-4xl font-bold'>English App</h1>
       <h2>問{questionIndex + 1}：{questions[questionIndex].japaneseText}</h2>
       <InputArea inputText={inputText} setInputText={setInputText}/>
