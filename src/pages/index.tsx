@@ -15,7 +15,7 @@ const questions = [
   {
     japaneseText: '彼はトムですか？',
     words: ['is', 'he', 'Tom', '?'],
-    answer: 'is he tom ?',
+    answer: 'is he Tom ?',
   }
 ]
 const Home = () => {
