@@ -12,7 +12,7 @@ const questions = [
   },
   {
     japaneseText: '彼はトムですか？',
-    words: ['is', 'he', 'Tom', '?'],
+    words: ['he', 'Tom', 'is', '?'],
     answer: 'is he Tom ?',
   }
 ]
