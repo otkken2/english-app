@@ -29,8 +29,8 @@ const Home = () => {
         </div>
       </div>
       <div className='grid grid-cols-3 gap-4'>
-        {words.map((word) => (
-          <div onClick={() => handleSelectWord(word)}>
+        {words.map((word, index) => (
+          <div key={index} onClick={() => handleSelectWord(word)}>
             <WordCard word={word} />
           </div>
         ))}
