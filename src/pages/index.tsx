@@ -1,31 +1,24 @@
 import React, { useState } from 'react'
-import { WordCard } from './api/components/WordCard'
-import WordsArea from './api/components/WordsArea'
-import { InputArea } from './api/components/InputArea'
-import { AnswerButton } from './api/components/AnswerButton'
+import { WordCard } from '../components/WordCard'
+import WordsArea from '../components/WordsArea'
+import { InputArea } from '../components/InputArea'
+import { AnswerButton } from '../components/AnswerButton'
+import { EraseButtons } from '@/components/EraseButtons'
+import { useWords } from '@/hooks/useWords'
 
 const words = ['this', 'pen', 'a', 'is']
 const answer = 'this is a pen'
 const Home = () => {
-  const [inputText, setInputText] = useState('')
-  const handleSelectWord = (word: string) => {
-    const newText = `${inputText} ${word}` 
-    setInputText(newText.trim())
-  }
-  const handleSubmit = () => {
-    if (inputText === answer) {
-      alert(`正解！`)
-    } else {
-      alert(`残念！: ${answer}`)
-    }
-    setInputText('')
-  }
+  const {handleSelectWord, handleSubmit, handleUndo, setInputText, inputText} = useWords()
+
   return (
     <div className='flex flex-col items-center md:max-w-[640px] max-w-screen w-full p-10 gap-10'>
       <h1 className='text-4xl font-bold'>English App</h1>
-      <InputArea inputText={inputText} setInputText={setInputText} />
+      <h2>これはペンです</h2>
+      <InputArea inputText={inputText} setInputText={setInputText}/>
       <WordsArea words={words} handleSelectWord={handleSelectWord} />
-      <AnswerButton handleSubmit={handleSubmit} />
+      <EraseButtons setInputText={setInputText} handleUndo={handleUndo} />
+      <AnswerButton handleSubmit={handleSubmit} className='' answer={answer}/>
     </div>
   )
 }
