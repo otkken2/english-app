@@ -1,15 +1,19 @@
 import { useState } from 'react'
+import { atom, useAtom } from 'jotai'
 
-export const useWords = () => {
+const questionIndexAtom = atom(0)
+export const useQuestion = () => {
+  const [questionIndex, setQuestionIndex] = useAtom(questionIndexAtom)
   const [inputText, setInputText] = useState('')
 
   const handleSelectWord = (word: string) => {
     const newText = `${inputText} ${word}` 
     setInputText(newText.trim())
   }
-  const handleSubmit = (answer: string) => {
+  const handleJudge = (answer: string) => {
     if (inputText === answer) {
       alert(`正解！`)
+      setQuestionIndex((prev) => prev + 1)
     } else {
       alert(`残念！: ${answer}`)
     }
@@ -23,6 +27,14 @@ export const useWords = () => {
     setInputText(newText)
   }
 
-  return {handleSelectWord, handleSubmit, handleUndo, inputText, setInputText}
+  return {
+    handleSelectWord, 
+    handleJudge, 
+    handleUndo, 
+    inputText, 
+    setInputText, 
+    questionIndex, 
+    setQuestionIndex
+  }
 }
 
