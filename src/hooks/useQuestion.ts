@@ -6,9 +6,18 @@ export const useQuestion = () => {
   const [questionIndex, setQuestionIndex] = useAtom(questionIndexAtom)
   const [inputText, setInputText] = useState('')
 
+  const capitalizeFirstLetter = (string: string) => {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
+
   const handleSelectWord = (word: string) => {
-    const newText = `${inputText} ${word}` 
-    setInputText(newText.trim())
+    if(!inputText){
+      const newText = capitalizeFirstLetter(word)
+      setInputText(newText)
+    } else {
+      const newText = `${inputText} ${word}` 
+      setInputText(newText.trim())
+    }
   }
   const handleJudge = (answer: string) => {
     if (inputText === answer) {

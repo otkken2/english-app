@@ -8,12 +8,12 @@ const questions = [
   {
     japaneseText: 'これはペンです',
     words: ['this', 'pen', 'a', 'is'],
-    answer: 'this is a pen',
+    answer: 'This is a pen',
   },
   {
     japaneseText: '彼はトムですか？',
     words: ['he', 'Tom', 'is', '?'],
-    answer: 'is he Tom ?',
+    answer: 'Is he Tom ?',
   }
 ]
 const Home = () => {
