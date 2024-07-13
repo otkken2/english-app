@@ -1,5 +1,3 @@
-import React, { useState } from 'react'
-import { WordCard } from '../components/WordCard'
 import WordsArea from '../components/WordsArea'
 import { InputArea } from '../components/InputArea'
 import { AnswerButton } from '../components/AnswerButton'
