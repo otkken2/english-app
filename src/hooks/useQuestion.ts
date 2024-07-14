@@ -1,6 +1,19 @@
 import { useState } from 'react'
 import { atom, useAtom } from 'jotai'
 
+const questions = [
+  {
+    japaneseText: 'これはペンです',
+    words: ['this', 'pen', 'a', 'is','it','the'],
+    answer: 'This is a pen',
+  },
+  {
+    japaneseText: '彼はトムですか？',
+    words: ['he', 'Tom', 'is', '?','are','am'],
+    answer: 'Is he Tom ?',
+  }
+]
+
 const questionIndexAtom = atom(0)
 export const useQuestion = () => {
   const [questionIndex, setQuestionIndex] = useAtom(questionIndexAtom)
@@ -36,6 +49,20 @@ export const useQuestion = () => {
     setInputText(newText)
   }
 
+  const handleSentenceEnding = () => {
+    if(!inputText) return ""
+    if(inputText.includes("?")){
+      return ""
+    } else {
+      return "."
+    }
+  }
+
+  const currentQuestionNumber = questionIndex + 1
+  const currentQuestionJapaneseText = questions[questionIndex]?.japaneseText
+  const currentQuestionWords = questions[questionIndex]?.words
+  const currentQuestionAnswer = questions[questionIndex]?.answer
+
   return {
     handleSelectWord, 
     handleJudge, 
@@ -43,7 +70,12 @@ export const useQuestion = () => {
     inputText, 
     setInputText, 
     questionIndex, 
-    setQuestionIndex
+    setQuestionIndex,
+    handleSentenceEnding,
+    currentQuestionNumber,
+    currentQuestionJapaneseText,
+    currentQuestionWords,
+    currentQuestionAnswer
   }
 }
 
