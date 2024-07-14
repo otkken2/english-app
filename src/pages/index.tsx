@@ -7,12 +7,12 @@ import { useQuestion } from '@/hooks/useQuestion'
 const questions = [
   {
     japaneseText: 'これはペンです',
-    words: ['this', 'pen', 'a', 'is'],
+    words: ['this', 'pen', 'a', 'is','it','the'],
     answer: 'This is a pen',
   },
   {
     japaneseText: '彼はトムですか？',
-    words: ['he', 'Tom', 'is', '?'],
+    words: ['he', 'Tom', 'is', '?','are','am'],
     answer: 'Is he Tom ?',
   }
 ]
